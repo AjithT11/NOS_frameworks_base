@@ -4364,4 +4364,9 @@
     <bool name="config_pdp_reject_enable_retry">false</bool>
     <!-- pdp data reject retry delay in ms -->
     <integer name="config_pdp_reject_retry_delay_ms">-1</integer>
+
+    <!-- The list of vendor package signatures that should also be considered
+     platform signatures, specifically for use on devices with a vendor partition. -->
+     <string-array name="config_vendorPlatformSignatures">
+     </string-array>
 </resources>
