@@ -31,6 +31,7 @@ import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
@@ -44,6 +45,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.android.internal.widget.LockPatternUtils;
+import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.settingslib.utils.ThreadUtils;
@@ -111,6 +114,7 @@ public class FODCircleView extends ImageView {
     private Handler mHandler;
 
     private final ImageView mPressedView;
+    private LockPatternUtils mLockPatternUtils;
 
     private Timer mBurnInProtectionTimer;
 
@@ -146,11 +150,14 @@ public class FODCircleView extends ImageView {
         @Override
         public void onKeyguardBouncerChanged(boolean isBouncer) {
             mIsBouncer = isBouncer;
-
-            if (isBouncer) {
+            if (mUpdateMonitor.isFingerprintDetectionRunning()) {
+                if (isPinOrPattern(mUpdateMonitor.getCurrentUser()) || !isBouncer) {
+                    show();
+                } else {
+                    hide();
+                }
+            } else {
                 hide();
-            } else if (mUpdateMonitor.isFingerprintDetectionRunning()) {
-                show();
             }
         }
 
@@ -264,6 +271,8 @@ public class FODCircleView extends ImageView {
 
         updatePosition();
         hide();
+
+        mLockPatternUtils = new LockPatternUtils(mContext);
 
         mUpdateMonitor = Dependency.get(KeyguardUpdateMonitor.class);
         mUpdateMonitor.registerCallback(mMonitorCallback);
@@ -546,6 +555,20 @@ public class FODCircleView extends ImageView {
             }
             updateIconDim(true);
         }
+    }
+
+    private boolean isPinOrPattern(int userId) {
+        int passwordQuality = mLockPatternUtils.getActivePasswordQuality(userId);
+        switch (passwordQuality) {
+            // PIN
+            case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC:
+            case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC_COMPLEX:
+            // Pattern
+            case DevicePolicyManager.PASSWORD_QUALITY_SOMETHING:
+                return true;
+        }
+
+        return false;
     }
 
     private class BurnInProtectionTask extends TimerTask {
