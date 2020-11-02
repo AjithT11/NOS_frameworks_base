@@ -110,6 +110,47 @@
     </family>
     <alias name="source-sans-pro-semi-bold" to="source-sans-pro" weight="600" />
 
+    <family name="googlesans">
+        <font weight="400" style="normal">GoogleSans-Regular.ttf</font>
+        <font weight="400" style="italic">GoogleSans-Italic.ttf</font>
+        <font weight="500" style="normal">GoogleSans-Medium.ttf</font>
+        <font weight="500" style="italic">GoogleSans-MediumItalic.ttf</font>
+        <font weight="700" style="normal">GoogleSans-Bold.ttf</font>
+        <font weight="700" style="italic">GoogleSans-BoldItalic.ttf</font>
+    </family>
+    <alias name="googlesans-regular" to="googlesans" weight="400" />
+    <alias name="googlesans-medium" to="googlesans" weight="500" />
+    <alias name="googlesans-semi-bold" to="googlesans" weight="600" />
+    <alias name="googlesans-bold" to="googlesans" weight="700" />
+    <alias name="times" to="googlesans" />
+    <alias name="times new roman" to="googlesans" />
+    <alias name="palatino" to="googlesans" />
+    <alias name="georgia" to="googlesans" />
+    <alias name="baskerville" to="googlesans" />
+    <alias name="goudy" to="googlesans" />
+    <alias name="fantasy" to="googlesans" />
+    <alias name="ITC Stone Serif" to="googlesans" />
+
+    <family name="ubuntu">
+        <font weight="400" style="normal">Ubuntu-Regular.ttf</font>
+        <font weight="500" style="normal">Ubuntu-Medium.ttf</font>
+        <font weight="500" style="italic">Ubuntu-MediumItalic.ttf</font>
+        <font weight="700" style="normal">Ubuntu-Bold.ttf</font>
+        <font weight="700" style="italic">Ubuntu-BoldItalic.ttf</font>
+    </family>
+    <alias name="ubuntu-regular" to="ubuntu" weight="400" />
+    <alias name="ubuntu-medium" to="ubuntu" weight="500" />
+    <alias name="ubuntu-semi-bold" to="ubuntu" weight="600" />
+    <alias name="ubuntu-bold" to="ubuntu" weight="700" />
+    <alias name="times" to="ubuntu" />
+    <alias name="times new roman" to="ubuntu" />
+    <alias name="palatino" to="ubuntu" />
+    <alias name="georgia" to="ubuntu" />
+    <alias name="baskerville" to="ubuntu" />
+    <alias name="goudy" to="ubuntu" />
+    <alias name="fantasy" to="ubuntu" />
+    <alias name="ITC Stone Serif" to="ubuntu" />
+
     <!-- fallback fonts -->
     <family lang="und-Arab" variant="elegant">
         <font weight="400" style="normal">NotoNaskhArabic-Regular.ttf</font>
