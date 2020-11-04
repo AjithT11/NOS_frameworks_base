@@ -4897,6 +4897,13 @@ public final class Settings {
          */
         public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
 
+        /**
+         * Whether the full battery light should be enabled
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+       public static final String BATTERY_FULL_LIGHT_ENABLED = "battery_full_light_enabled";
+
        /**
         * Whether to show battery light when DND mode is active
         * @hide
@@ -5045,6 +5052,12 @@ public final class Settings {
 
         /** @hide */
         public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
+
+        /**
+         * volume answer
+         * @hide
+         */
+        public static final String ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER = "call_volume_answer";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
@@ -5212,6 +5225,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(ENABLE_CONDITIONS);
             PRIVATE_SETTINGS.add(ENABLE_SUGGESTIONS);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
+            PRIVATE_SETTINGS.add(ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER);
         }
 
         /**
@@ -9288,6 +9302,18 @@ public final class Settings {
          * @hide
          */
         public static final int ACCESSIBILITY_MAGNIFICATION_MODE_WINDOW = 0x2;
+
+        /**
+         * @hide
+         */
+        public static final String QS_SHOW_AUTO_BRIGHTNESS =
+                "qs_show_auto_brightness";
+
+        /**
+         * @hide
+         */
+        public static final String QS_SHOW_BRIGHTNESS_SLIDER =
+                "qs_show_brightness_slider";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
